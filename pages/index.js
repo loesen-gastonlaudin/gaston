@@ -4,8 +4,8 @@ import { social, stack, experience } from '../public/data/data'
 export default function Home() {
 
   const experiences = experience.map(item => (
-    <li key={item.name} className='bg-background rounded-md p-1 inline'>
-      <p className='inline'>{item.name}</p>
+    <li key={item.name} className='bg-background rounded-md p-1 sm:inline'>
+      <p className=' text-center sm:inline'>{item.name}</p>
     </li>
   ))
   const stacks = stack.map(item => (
@@ -53,32 +53,32 @@ export default function Home() {
                 [&>*]:border-b-solid 
                 [&>*]:md:p-7'>
               <div className=''>
-                <h3 className='w-4/12 text-gray-400 mb-4 md:mb-0 font-bold'>E-mail</h3>
+                <h3 className='w-full text-gray-400 mb-4 md:mb-0 font-bold md:w-4/12'>E-mail</h3>
                 <p>gastonlaudin@gmail.com</p>
               </div>
 
               <div>
-                <h3 className='w-4/12 text-gray-400 mb-4 md:mb-0 font-bold'>Profession</h3>
+                <h3 className='w-full text-gray-400 mb-4 md:mb-0 font-bold md:w-4/12'>Profession</h3>
                 <p>Full-Stack Web Developer</p>
               </div>
 
               <div>
-                <h3 className='w-4/12 text-gray-400 mb-4 md:mb-0 font-bold'>Experience</h3>
+                <h3 className='w-full text-gray-400 mb-4 md:mb-0 font-bold md:w-4/12'>Experience</h3>
                 <ul>
                   {experiences}
                 </ul>
               </div>
 
               <div>
-                <h3 className='w-4/12 text-gray-400 mb-4 md:mb-0 font-bold'>Preffered Stack</h3>
-                <ul className='flex gap-x-16 flex-wrap w-8/12'>
+                <h3 className='w-full text-gray-400 mb-4 md:mb-0 font-bold md:w-4/12'>Preffered Stack</h3>
+                <ul className='flex justify-center gap-x-16 flex-wrap w-full md:w-8/12 md:justify-start'>
                   {stacks}
                 </ul>
               </div>
 
               <div>
-                <h3 className='w-4/12 text-gray-400 mb-4 md:mb-0 font-bold'>Social</h3>
-                <ul className='flex gap-8 flex-wrap'>
+                <h3 className='w-full text-gray-400 mb-4 md:mb-0 font-bold md:w-4/12'>Social</h3>
+                <ul className='flex justify-center gap-8 flex-wrap md:justify-start'>
                   {socials}
                 </ul>
               </div>
