@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { social, stack, experience } from '../public/data/data';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const experiences = experience.map((item) => (
@@ -26,82 +26,92 @@ export default function Home() {
     </li>
   ));
 
+  const [cart, setCart] = useState([]);
+
+  const items = [
+    {
+      item_id: '6d9b0',
+      item_name: 'Poyo T-Shirt',
+      price: '62.00',
+      quantity: 1,
+      item_brand: 'Poyo',
+      item_category: 'T-Shirts',
+      item_variant: 'red',
+      index: 0,
+      size: 'M',
+    },
+    {
+      item_id: '6c3b0',
+      item_name: 'Zappix T-Shirt',
+      price: '99.00',
+      quantity: 1,
+      item_brand: 'Zappix',
+      item_category: 'T-Shirts',
+      item_variant: 'red',
+      index: 1,
+      size: 'M',
+    },
+  ];
+
   useEffect(() => {
-    gtag('event', 'view_item', {
-      items: [
-        {
-          item_id: '6d9b0',
-          item_name: 'Poyo T-Shirt',
-          price: '62.00',
-          item_brand: 'Poyo',
-          item_category: 'T-Shirts',
-          index: 0,
-        },
-      ],
+    // gtag('event', 'view_item', {
+    //   items: [
+    //     {
+    //       item_id: '6d9b0',
+    //       item_name: 'Poyo T-Shirt',
+    //       price: '62.00',
+    //       item_brand: 'Poyo',
+    //       item_category: 'T-Shirts',
+    //       index: 0,
+    //     },
+    //   ],
+    //   currency: 'ARS',
+    // });
+
+    gtag('event', 'view_cart', {
       currency: 'ARS',
+      value: 161,
+      items,
     });
   }, []);
 
-  const handleBuy = () => {
-    gtag('event', 'begin_checkout', {
+  const handleAddCart = () => {
+    if (cart.length === 2) return;
+
+    setCart(items);
+    gtag('event', 'add_to_cart', {
+      currency: 'ARS',
       value: 161,
-      currency: 'USD',
-      items: [
-        {
-          item_id: '6d9b0',
-          item_name: 'Poyo T-Shirt',
-          price: '62.00',
-          quantity: 1,
-          item_brand: 'Poyo',
-          item_category: 'T-Shirts',
-          item_variant: 'red',
-          index: 0,
-          size: 'M',
-        },
-        {
-          item_id: '6c3b0',
-          item_name: 'Zappix T-Shirt',
-          price: '99.00',
-          quantity: 1,
-          item_brand: 'Zappix',
-          item_category: 'T-Shirts',
-          item_variant: 'red',
-          index: 1,
-          size: 'M',
-        },
-      ],
+      items,
     });
+  };
+
+  const handleRemoveCart = () => {
+    if (cart.length === 0) return;
+    setCart([]);
+    gtag('event', 'remove_from_cart', {
+      currency: 'ARS',
+      value: 161,
+      items,
+    });
+  };
+
+  const handleBuy = () => {
+    if (cart.length === 0) return;
+
+    // gtag('event', 'begin_checkout', {
+    //   value: 161,
+    //   currency: 'ARS',
+    //   items: cart,
+    // });
 
     gtag('event', 'purchase', {
-      transaction_id: '0ccbfab0-d8b1-45cc-bf23-0302eb1de474',
+      transaction_id: '0ccbfab0-d8b1-45cc-bf23-0302eb1de46',
       currency: 'ARS',
       tax: 5,
       shipping: 5,
       value: 171,
-      items: [
-        {
-          item_id: '6d9b0',
-          item_name: 'Poyo T-Shirt',
-          price: '62.00',
-          quantity: 1,
-          item_brand: 'Poyo',
-          item_category: 'T-Shirts',
-          item_variant: 'red',
-          index: 0,
-          size: 'M',
-        },
-        {
-          item_id: '6c3b0',
-          item_name: 'Zappix T-Shirt',
-          price: '99.00',
-          quantity: 1,
-          item_brand: 'Zappix',
-          item_category: 'T-Shirts',
-          item_variant: 'red',
-          index: 1,
-          size: 'M',
-        },
-      ],
+      items: cart,
     });
   };
 
@@ -169,6 +179,20 @@ export default function Home() {
               <ul className='flex flex-wrap justify-center gap-8 md:justify-start'>
                 {socials}
               </ul>
+            </div>
+            <div className='flex gap-3'>
+              <button
+                onClick={handleAddCart}
+                className='mb-4 w-full bg-white font-bold text-gray-400 md:mb-0 md:w-4/12'
+              >
+                Add to Cart {cart.length}
+              </button>
+              <button
+                onClick={handleRemoveCart}
+                className='mb-4 w-full bg-white font-bold text-gray-400 md:mb-0 md:w-4/12'
+              >
+                Remove from Cart
+              </button>
             </div>
             <div>
               <button
