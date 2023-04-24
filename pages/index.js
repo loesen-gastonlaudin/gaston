@@ -40,17 +40,6 @@ export default function Home() {
       index: 0,
       size: 'M',
     },
-    {
-      item_id: '6c3b0',
-      item_name: 'Zappix T-Shirt',
-      price: '99.00',
-      quantity: 1,
-      item_brand: 'Zappix',
-      item_category: 'T-Shirts',
-      item_variant: 'red',
-      index: 1,
-      size: 'M',
-    },
   ];
 
   useEffect(() => {
@@ -70,7 +59,7 @@ export default function Home() {
 
     gtag('event', 'view_cart', {
       currency: 'ARS',
-      value: 161,
+      value: 62,
       items,
     });
   }, []);
@@ -81,7 +70,7 @@ export default function Home() {
     setCart(items);
     gtag('event', 'add_to_cart', {
       currency: 'ARS',
-      value: 161,
+      value: 62,
       items,
     });
   };
@@ -91,7 +80,7 @@ export default function Home() {
     setCart([]);
     gtag('event', 'remove_from_cart', {
       currency: 'ARS',
-      value: 161,
+      value: 62,
       items,
     });
   };
@@ -100,7 +89,7 @@ export default function Home() {
     if (cart.length === 0) return;
 
     // gtag('event', 'begin_checkout', {
-    //   value: 161,
+    //   value: 62,
     //   currency: 'ARS',
     //   items: cart,
     // });
@@ -110,7 +99,7 @@ export default function Home() {
       currency: 'ARS',
       tax: 5,
       shipping: 5,
-      value: 171,
+      value: 72,
       items: cart,
     });
   };
