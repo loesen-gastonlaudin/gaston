@@ -43,6 +43,35 @@ export default function Home() {
   }, []);
 
   const handleBuy = () => {
+    gtag('event', 'begin_checkout', {
+      value: 161,
+      currency: 'USD',
+      items: [
+        {
+          item_id: '6d9b0',
+          item_name: 'Poyo T-Shirt',
+          price: '62.00',
+          quantity: 1,
+          item_brand: 'Poyo',
+          item_category: 'T-Shirts',
+          item_variant: 'red',
+          index: 0,
+          size: 'M',
+        },
+        {
+          item_id: '6c3b0',
+          item_name: 'Zappix T-Shirt',
+          price: '99.00',
+          quantity: 1,
+          item_brand: 'Zappix',
+          item_category: 'T-Shirts',
+          item_variant: 'red',
+          index: 1,
+          size: 'M',
+        },
+      ],
+    });
+
     gtag('event', 'purchase', {
       transaction_id: '0ccbfab0-d8b1-45cc-bf23-0302eb1de474',
       currency: 'ARS',
