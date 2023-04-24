@@ -38,14 +38,14 @@ export default function Home() {
           index: 0,
         },
       ],
-      currency: 'USD',
+      currency: 'ARS',
     });
   }, []);
 
   const handleBuy = () => {
     gtag('event', 'purchase', {
       transaction_id: '0ccbfab0-d8b1-45cc-bf23-0302eb1de474',
-      currency: 'USD',
+      currency: 'ARS',
       value: 171,
       items: [
         {
