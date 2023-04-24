@@ -54,11 +54,11 @@ export default function Home() {
     //       index: 0,
     //     },
     //   ],
-    //   currency: 'ARS',
+    //   currency: 'USD',
     // });
 
     gtag('event', 'view_cart', {
-      currency: 'ARS',
+      currency: 'USD',
       value: 62,
       items,
     });
@@ -69,7 +69,7 @@ export default function Home() {
 
     setCart(items);
     gtag('event', 'add_to_cart', {
-      currency: 'ARS',
+      currency: 'USD',
       value: 62,
       items,
     });
@@ -79,7 +79,7 @@ export default function Home() {
     if (cart.length === 0) return;
     setCart([]);
     gtag('event', 'remove_from_cart', {
-      currency: 'ARS',
+      currency: 'USD',
       value: 62,
       items,
     });
@@ -91,14 +91,14 @@ export default function Home() {
     setCart([]);
     // gtag('event', 'begin_checkout', {
     //   value: 62,
-    //   currency: 'ARS',
+    //   currency: 'USD',
     //   items: cart,
     // });
 
     gtag('event', 'purchase', {
       transaction_id:
         '0ccbfab0-d8b1-45cc-bf23-0302eb1de46' + Math.random() * 999,
-      currency: 'ARS',
+      currency: 'USD',
       tax: 5,
       shipping: 5,
       value: 72,
