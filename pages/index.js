@@ -46,6 +46,8 @@ export default function Home() {
     gtag('event', 'purchase', {
       transaction_id: '0ccbfab0-d8b1-45cc-bf23-0302eb1de474',
       currency: 'ARS',
+      tax: 5,
+      shipping: 5,
       value: 171,
       items: [
         {
@@ -56,6 +58,8 @@ export default function Home() {
           item_brand: 'Poyo',
           item_category: 'T-Shirts',
           item_variant: 'red',
+          index: 0,
+          size: 'M',
         },
         {
           item_id: '6c3b0',
@@ -65,6 +69,8 @@ export default function Home() {
           item_brand: 'Zappix',
           item_category: 'T-Shirts',
           item_variant: 'red',
+          index: 1,
+          size: 'M',
         },
       ],
     });
