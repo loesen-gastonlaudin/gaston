@@ -30,7 +30,7 @@ export default function Home() {
 
   const items = [
     {
-      item_id: '6d9b0',
+      item_id: '6d9b0-test_id',
       item_name: 'Poyo T-Shirt',
       price: '62.00',
       quantity: 1,
@@ -65,7 +65,7 @@ export default function Home() {
   }, []);
 
   const handleAddCart = () => {
-    if (cart.length === 2) return;
+    if (cart.length === 1) return;
 
     setCart(items);
     gtag('event', 'add_to_cart', {
@@ -88,6 +88,7 @@ export default function Home() {
   const handleBuy = () => {
     if (cart.length === 0) return;
 
+    setCart([]);
     // gtag('event', 'begin_checkout', {
     //   value: 62,
     //   currency: 'ARS',
@@ -95,7 +96,8 @@ export default function Home() {
     // });
 
     gtag('event', 'purchase', {
-      transaction_id: '0ccbfab0-d8b1-45cc-bf23-0302eb1de46',
+      transaction_id:
+        '0ccbfab0-d8b1-45cc-bf23-0302eb1de46' + Math.random() * 999,
       currency: 'ARS',
       tax: 5,
       shipping: 5,
