@@ -11,7 +11,7 @@ export default function useInterval() {
 
     console.log(buildId);
 
-    if (buildId && version && buildId !== version) {
+    if (buildId && version.version && buildId !== version.version) {
       setReload(true);
     } else {
     }
