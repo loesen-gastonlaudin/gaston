@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { social, stack, experience } from '../public/data/data';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const experiences = experience.map((item) => (
@@ -30,7 +31,7 @@ export default function Home() {
 
   const items = [
     {
-      item_id: '6d9b0-test_id',
+      item_id: '6d9b01-test_id',
       item_name: 'Poyo T-Shirt',
       price: '62.00',
       quantity: 1,
@@ -59,21 +60,21 @@ export default function Home() {
     if (cart.length === 1) return;
 
     setCart(items);
-    gtag('event', 'add_to_cart', {
-      currency: 'ARS',
-      value: 62,
-      items,
-    });
+    // gtag('event', 'add_to_cart', {
+    //   currency: 'ARS',
+    //   value: 62,
+    //   items,
+    // });
   };
 
   const handleRemoveCart = () => {
     if (cart.length === 0) return;
     setCart([]);
-    gtag('event', 'remove_from_cart', {
-      currency: 'ARS',
-      value: 62,
-      items,
-    });
+    // gtag('event', 'remove_from_cart', {
+    //   currency: 'ARS',
+    //   value: 62,
+    //   items,
+    // });
   };
 
   const handleBuy = () => {
@@ -86,15 +87,15 @@ export default function Home() {
     //   items: cart,
     // });
 
-    gtag('event', 'purchase', {
-      transaction_id:
-        '0ccbfab0-d8b1-45cc-bf23-0302eb1de46' + Math.random() * 999,
-      currency: 'ARS',
-      tax: 5,
-      shipping: 5,
-      value: 72,
-      items: cart,
-    });
+    // gtag('event', 'purchase', {
+    //   transaction_id:
+    //     '0ccbfab0-d8b1-45cc-bf23-0302eb1de474' + Math.random() * 999,
+    //   currency: 'ARS',
+    //   tax: 5,
+    //   shipping: 5,
+    //   value: 72,
+    //   items: cart,
+    // });
   };
 
   return (
@@ -183,6 +184,10 @@ export default function Home() {
               >
                 Buy
               </button>
+            </div>
+
+            <div>
+              <Link href={'/page_1'}>page_1</Link>
             </div>
           </div>
         </main>
