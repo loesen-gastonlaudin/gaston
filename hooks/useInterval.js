@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { version } from '../config/version';
 
 export default function useInterval() {
   const interval = 3000;
@@ -10,11 +11,7 @@ export default function useInterval() {
 
     console.log(buildId);
 
-    if (
-      buildId &&
-      process.env.NEXT_PUBLIC_BUILD_ID &&
-      buildId !== process.env.NEXT_PUBLIC_BUILD_ID
-    ) {
+    if (buildId && version && buildId !== version) {
       setReload(true);
     } else {
     }
