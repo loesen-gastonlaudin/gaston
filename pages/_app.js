@@ -3,8 +3,8 @@ import '../styles/globals.css';
 import useInterval from '../hooks/useInterval';
 
 function MyApp({ Component, pageProps }) {
-  const [reload] = useInterval();
-  console.log(reload);
+  // const [reload] = useInterval();
+  // console.log(reload);
   return (
     <>
       <Script
@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }) {
       `,
         }}
       /> */}
-      {reload && (
+      {false && (
         <div className='absolute h-screen w-full'>
           <div className='relative flex h-full w-full items-center justify-center'>
             <div className='absolute h-full w-full bg-black opacity-70'></div>
